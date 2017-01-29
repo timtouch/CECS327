@@ -7,26 +7,20 @@ public class WithdrawThread extends Thread
 {
     private BankAcct acct;
     private int turns;
-    private Lock lock;
 
-    public WithdrawThread (BankAcct acct, int turns, Lock lock)
+    public WithdrawThread (BankAcct acct, int turns)
     {
         this.acct = acct;
         this.turns = turns;
-        this.lock = lock;
     }
 
     public void run ()
     {
         for (int k = 0; k < turns; k++)
         {
-            lock.lock();
             acct.withdraw(5);
-            lock.unlock();
         }
         System.out.println("ID: " + acct.getId());
-        lock.lock();
         System.out.println("Withdraw Balance: " + acct.getBalance());
-        lock.unlock();
     }
 }
