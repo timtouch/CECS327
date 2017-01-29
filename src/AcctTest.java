@@ -27,10 +27,10 @@ public class AcctTest
 
         Random rand = new Random();
         int id = rand.nextInt(NUM_ACCT);
-        DepositThread one = new DepositThread((BankAcct)accts.get(id), TURNS, acctTest.lock);
-        WithdrawThread two = new WithdrawThread((BankAcct)accts.get(id), TURNS, acctTest.lock);
-        DepositThread three = new DepositThread((BankAcct)accts.get(id), TURNS, acctTest.lock);
-        WithdrawThread four = new WithdrawThread((BankAcct)accts.get(id), TURNS, acctTest.lock);
+        DepositThread one = new DepositThread((BankAcct)accts.get(id), TURNS);
+        WithdrawThread two = new WithdrawThread((BankAcct)accts.get(id), TURNS);
+        DepositThread three = new DepositThread((BankAcct)accts.get(id), TURNS);
+        WithdrawThread four = new WithdrawThread((BankAcct)accts.get(id), TURNS);
 
         one.start();
         two.start();
