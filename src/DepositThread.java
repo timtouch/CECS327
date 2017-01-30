@@ -19,6 +19,6 @@ public class DepositThread extends Thread
             acct.deposit(5);
         }
         System.out.println("ID: " + acct.getId());
-        System.out.println("Deposit Balance: " + acct.getBalance());
+        System.out.println("Balance: " + acct.getBalance());
     }
 }

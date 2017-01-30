@@ -19,6 +19,6 @@ public class WithdrawThread extends Thread
             acct.withdraw(5);
         }
         System.out.println("ID: " + acct.getId());
-        System.out.println("Withdraw Balance: " + acct.getBalance());
+        System.out.println("Balance: " + acct.getBalance());
     }
 }

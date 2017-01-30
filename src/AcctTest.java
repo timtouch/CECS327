@@ -1,5 +1,7 @@
 /**
- * Created by timtouch on 1/25/17.
+ * Class: AcctTest
+ * Course: CECS 327
+ * Author: Timothy Touch
  */
 import java.util.*;
 import java.util.concurrent.locks.*;
