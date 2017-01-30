@@ -1,4 +1,3 @@
-import java.util.concurrent.locks.Lock;
 /**
  * Created by timtouch on 1/25/17.
  */
@@ -7,7 +6,7 @@ public class DepositThread extends Thread
     private BankAcct acct;
     private int turns;
 
-    public DepositThread (BankAcct acct, int turn)
+    public DepositThread (BankAcct acct, int turns)
     {
         this.acct = acct;
         this.turns = turns;
