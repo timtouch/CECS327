@@ -10,7 +10,7 @@ public class BankAcct
 {
     private double balance;
     private String id;
-    private Lock lock;
+    private Lock lock;  // Added the lock to the bank account
 
     public BankAcct (String id, Lock lock)
     {
@@ -26,24 +26,24 @@ public class BankAcct
 
     public void deposit (double amt)
     {
-        lock.lock();
+        lock.lock(); // Lock the critical section for one thread at a time
         if (amt >= 0)
         {
             balance += amt;
         }
-        lock.unlock();
+        lock.unlock(); // Unlock it after finished with critical section
     }
 
     public boolean withdraw (double amt)
     {
-        lock.lock();
+        lock.lock(); // Lock the critical section for one thread at a time
         boolean retval = false;
         if (amt <= balance)
         {
             balance -= amt;
             retval = true;
         }
-        lock.unlock();
+        lock.unlock(); // Unlock it after finished with critical section
         return retval;
     }
 

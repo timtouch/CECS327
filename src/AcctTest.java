@@ -11,13 +11,13 @@ public class AcctTest
     private static final int NUM_ACCT = 500;
     private static final int TURNS = 10000000;
     private static int id = 1;
-    private static Lock lock = new ReentrantLock();
+    private static Lock lock = new ReentrantLock();  // Create a ReentrantLock
 
     public static void init(List<BankAcct> accts)
     {
         for (int k = 0; k < NUM_ACCT; k++)
         {
-            accts.add(new BankAcct("" + (id++), lock));
+            accts.add(new BankAcct("" + (id++), lock)); // Passed the lock into the BankAcct class
         }
     }
 
