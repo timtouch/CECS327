@@ -12,13 +12,13 @@ public class PhilTest
     private static Lock lock = new ReentrantLock();
     private static Condition phil[] = new Condition[NUM_PHILS];
     private static int states[] = new int[NUM_PHILS];
+    private static Chopstick chopsticks[] = new Chopstick[NUM_PHILS];
 
     public static void init()
     {
-        for (int k = 0; k < NUM_PHILS; k++)
+        for (int i = 0; i < NUM_PHILS; i++)
         {
-            phil[k] = lock.newCondition();
-            states[k] = THINKING;
+            chopsticks[i] = new Chopstick(i);
         }
     }
     public static void main(String[] args)
@@ -27,7 +27,7 @@ public class PhilTest
         Philosopher p[] = new Philosopher[NUM_PHILS];
         for (int k = 0; k < p.length; k++)
         {
-            p[k] = new Philosopher(lock,phil,states,NUM_PHILS);
+            p[k] = new Philosopher(k, chopsticks[Math.floorMod(k,NUM_PHILS)], chopsticks[Math.floorMod(k - 1, NUM_PHILS)]);
             p[k].start();
         }
     }
