@@ -9,13 +9,16 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Chopstick
 {
-    private Lock lock;
-    private int number;
+    private Lock lock;              // The lock is to only allow one Philosopher to grab this Chopstick
+    private int number;             // Chopstick number
+    private boolean isDirty;        // Tells if chopstick is dirty
+    private int holder;             // Identifies holder
 
-    public Chopstick(int n)
+    public Chopstick(int n, int holder)
     {
         lock = new ReentrantLock();
         this.number = n;
+        this.holder = holder;
     }
 
     public void pickUp()
