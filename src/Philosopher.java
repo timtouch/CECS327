@@ -25,6 +25,9 @@ import java.util.concurrent.locks.Lock;
  *              - If they need the left one, request that
  *      -If another philosopher had previously requested one of the sticks
  *          - The philosopher that finished eating cleans the stick and sends it
+ *
+ *
+ *
  */
 public class Philosopher extends Thread
 {
@@ -54,8 +57,8 @@ public class Philosopher extends Thread
 
     public void pickUp()
     {
-        lower.pickUp();
-        higher.pickUp();
+        lower.pickUp(index);
+        higher.pickUp(index);
     }
 
     public void chew()
